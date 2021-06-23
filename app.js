@@ -3,6 +3,9 @@ const express = require('express');
 
 const app = express();
 
+const userRoute = require('./routes/index');
+app.use('/', userRoute)
+
 
 const PORT = process.en.PORT || 3000;
 
