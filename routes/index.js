@@ -5,3 +5,5 @@ const route = express.Router();
 route.get('/', (req, res) => {
     res.send('This is the home page');
 });
+
+module.exports = route;
