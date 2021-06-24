@@ -1,6 +1,6 @@
 // jshint esversion:10
 const express = require('express');
-const route = express.Router();
+const router = express.Router();
 
 router.get('/login', (req, res) => {
     res.render('login');
@@ -8,4 +8,4 @@ router.get('/login', (req, res) => {
 
 
 
-module.exports = route;
+module.exports = router;

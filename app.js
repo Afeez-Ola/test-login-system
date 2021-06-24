@@ -17,7 +17,7 @@ app.use(expressLayouts);
 const indexRoute = require('./routes/index');
 const userRoute = require('./routes/users');
 app.use('/', indexRoute);
-app.use('/', userRoute);
+app.use('/users', userRoute);
 
 
 const PORT = process.en.PORT || 3000;
