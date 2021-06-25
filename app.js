@@ -6,6 +6,7 @@ const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const ejs = require('ejs');
+require('dotenv').config();
 
 const app = express();
 
@@ -20,13 +21,13 @@ const userRoute = require('./routes/users');
 app.use('/', indexRoute);
 app.use('/users', userRoute);
 
-mongoose.connect(process.env.Mongo_URI, () => {
-    console.log(`Server started on PORT: ${PORT}`)
+mongoose.connect(process.env.Mongo_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
+    console.log(`Server onnected to Database 🚀🚀`);
 });
 
 
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`Server is live on PORT: ${PORT}`)
+    console.log(`Server is live on PORT: ${PORT}`);
 });
