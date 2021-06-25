@@ -11,6 +11,10 @@ router.get('/register', (req, res) => {
     res.render('register');
 });
 
+router.post('/register', (req, res) => {
+    const errors = [];
+
+});
 
 
 module.exports = router;
