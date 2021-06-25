@@ -5,6 +5,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const ejs = require('ejs');
 
 const app = express();
 
@@ -19,8 +20,12 @@ const userRoute = require('./routes/users');
 app.use('/', indexRoute);
 app.use('/users', userRoute);
 
+mongoose.connect(process.env.Mongo_URI, () => {
+    console.log(`Server started on PORT: ${PORT}`)
+});
 
-const PORT = process.en.PORT || 3000;
+
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
     console.log(`Server is live on PORT: ${PORT}`)
