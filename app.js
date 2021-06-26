@@ -15,6 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(session({
     secret: 'secret',
     resave: true,
