@@ -1,7 +1,8 @@
 // jshint esversion:10
 const bcrypt = require('bcryptjs');
-const passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport');
+const mongoose = require('mongoose');
+const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../model/User');
 
