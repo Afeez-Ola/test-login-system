@@ -14,6 +14,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+
 app.use(flash());
 
 app.use((req, res, next) => {
