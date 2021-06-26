@@ -28,11 +28,30 @@ router.post('/register', (req, res) => {
         errors.push({ msg: 'Password must be up to 6 characters' });
     }
 
-    if(errors.length > 0) {
+    if (errors.length > 0) {
         res.render('register', {
             errors,
-            name,email,password,password2
+            name,
+            email,
+            password,
+            password2
         });
+    } else {
+        User.findOne({ email: email })
+            .then((user) => {
+                if (user) {
+                    errors.push({ msg: 'Email has been registered by another user' });
+                    res.render('register', {
+                        errors,
+                        name,
+                        email,
+                        password,
+                        password2
+                    });
+                }
+            })
+            .catch(err => console.log(err));
+
     }
 
 });
