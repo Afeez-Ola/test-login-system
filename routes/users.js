@@ -17,7 +17,7 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
     const { name, email, password, password2 } = req.body;
-    console.log(name, email, password, password2);
+    // console.log(name, email, password, password2);
     const errors = [];
 
     if (!name || !email || !password || !password2) {
@@ -58,7 +58,7 @@ router.post('/register', (req, res) => {
                         email,
                         password
                     });
-                    console.log(newUser);
+                    // console.log(newUser);
 
                     bcrypt.genSalt(10, function(err, salt) {
                         bcrypt.hash(newUser.password, salt, function(err, hash) {
@@ -72,7 +72,7 @@ router.post('/register', (req, res) => {
                                 })
                                 .catch(err => {
                                     req.flash('error_msg', 'Email has been registered');
-                                    console.log(err);
+                                    // console.log(err);
                                 });
 
                         });
