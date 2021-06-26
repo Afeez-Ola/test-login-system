@@ -36,7 +36,7 @@ app.use('/', indexRoute);
 app.use('/users', userRoute);
 
 mongoose.connect(process.env.Mongo_URI, { useNewUrlParser: true, useUnifiedTopology: true }, () => {
-    console.log(`Server onnected to Database 🚀🚀`);
+    console.log(`Server connected to Database 🚀🚀`);
 });
 
 
