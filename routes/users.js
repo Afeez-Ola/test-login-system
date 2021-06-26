@@ -48,6 +48,14 @@ router.post('/register', (req, res) => {
                         password,
                         password2
                     });
+                } else {
+                    const newUser = new User({
+                        name,
+                        email,
+                        password
+                    });
+
+                    console.log(newUser)
                 }
             })
             .catch(err => console.log(err));
