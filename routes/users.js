@@ -1,5 +1,6 @@
 // jshint esversion:10
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 const User = require('../model/User');
