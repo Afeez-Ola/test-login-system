@@ -10,6 +10,9 @@ require('dotenv').config();
 
 const app = express();
 
+require('./config/passport')(passport);
+
+
 app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
