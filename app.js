@@ -1,19 +1,20 @@
 // jshint esversion:6
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
+const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-const mongoose = require('mongoose');
-const ejs = require('ejs');
-require('dotenv').config();
 
 const app = express();
 
 require('./config/passport')(passport);
 
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
