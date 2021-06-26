@@ -21,6 +21,14 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.post('/login',
+    passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+    })
+);
+
 app.use(flash());
 
 app.use((req, res, next) => {
