@@ -14,6 +14,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.sucess_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+});
 
 
 const indexRoute = require('./routes/index');
