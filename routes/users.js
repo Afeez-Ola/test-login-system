@@ -17,7 +17,7 @@ router.post('/register', (req, res) => {
     console.log(name, email, password, password2);
     const errors = [];
 
-    if (!name || !email || !password || password2) {
+    if (!name || !email || !password || !password2) {
         errors.push({ msg: 'Please fill all fields.' });
     }
 
@@ -67,7 +67,10 @@ router.post('/register', (req, res) => {
                                     req.flash('success_msg', 'User is now registered!');
                                     res.redirect('/users/login');
                                 })
-                                .catch(err => console.log(err));
+                                .catch(err => {
+                                    req.flash('error_msg', 'Email has been registered');
+                                    console.log(err);
+                                });
 
                         });
                     });
