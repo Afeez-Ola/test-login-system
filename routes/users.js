@@ -78,8 +78,7 @@ router.post('/register', (req, res) => {
                         });
                     });
                 }
-            })
-
+            });
     }
 
 });
