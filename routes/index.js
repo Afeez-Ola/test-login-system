@@ -4,7 +4,7 @@ const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 
 router.get('/', (req, res) => {
-    res.render('welcome');
+    res.render('home');
 });
 
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
